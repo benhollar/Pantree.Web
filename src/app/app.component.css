@@ -1,0 +1,9 @@
+.container {
+    padding: 0 var(--size-500);
+    max-width: 1280px;
+    margin: auto;
+}
+
+.main-content {
+    padding-top: var(--size-500);
+}

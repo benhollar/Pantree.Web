@@ -1,0 +1,16 @@
+@import url(app/shared/color-themes.css);
+@import url(app/shared/fonts.css);
+@import url(app/shared/utility-classes.css);
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* { 
+    padding: 0;
+    margin: 0;
+}

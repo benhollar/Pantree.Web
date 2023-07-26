@@ -1,0 +1,72 @@
+.primary-header {
+    padding: var(--size-400) 0;
+    justify-content: space-between;
+    overflow-x: hidden;
+    border-bottom: 1px solid black;
+    background-color: var(--clr-bg);
+}
+
+.logo {
+    font-size: var(--fs-secondary-heading);
+    font-weight: var(--fw-bold);
+    width: fit-content;
+    color: var(--clr-primary);
+}
+
+nav {
+    display: flex;
+    font-size: var(--fs-nav);
+    font-weight: var(--fw-semi-bold);
+}
+
+.primary-navigation {
+    --gap: 2em;
+    
+    list-style: none;
+    align-items: center;
+}
+.primary-navigation a {
+    text-decoration: none;
+    color: var(--clr-secondary);
+}
+.primary-navigation a:hover,
+.primary-navigation a:focus {
+    color: var(--clr-accent);
+}
+
+@media (max-width: 40em) {
+    .primary-header {
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+
+    .primary-navigation {
+        --gap: 1em;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .small-menu-container {
+        flex-direction: column;
+        max-height: 0;
+        transition: all .4s ease;
+        overflow-y: hidden;
+    }
+    .small-menu-container[data-visible="true"] {
+        max-height: 300px;
+        padding-bottom: var(--size-400);
+    }
+    /* Prevent scrolling page while navigation menu is open; requires encapsulation on component to be disabled */
+    body:has(.small-menu-container[data-visible="true"]) {
+        overflow: hidden;
+    }
+
+    .menu-button {
+        display: block;
+        position: absolute;
+        top: var(--size-500);
+        right: var(--size-400);
+        z-index: 9999;
+    }
+}

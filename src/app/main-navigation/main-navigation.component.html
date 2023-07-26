@@ -1,0 +1,34 @@
+<header class="primary-header flex">
+
+    <span routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page" class="logo">
+        Pantree
+    </span>
+
+    <ng-template [ngIf]="isScreenSmall" [ngIfThen]="menuButton" [ngIfElse]="fullNav" />
+
+</header>
+
+<!-- Templates -->
+
+<ng-template #fullNav>
+    <nav>
+        <ul class="primary-navigation flex">
+            <li *ngFor="let navItem of navItems">
+                <a routerLink="{{navItem.routerLink}}">{{navItem.displayText}}</a>
+            </li>
+        </ul>
+    </nav>
+
+    <button>
+        Login
+    </button>
+</ng-template>
+
+<ng-template #menuButton>
+    <button class="menu-button" (click)="hamburgerMenuOpen = !hamburgerMenuOpen">Hamburger</button>
+    <!-- <ng-template [ngIf]="hamburgerMenuOpen" [ngIfThen]="fullNav"/> -->
+
+    <div class="small-menu-container flex" [attr.data-visible]="hamburgerMenuOpen">
+        <ng-template [ngTemplateOutlet]="fullNav" />
+    </div>
+</ng-template>

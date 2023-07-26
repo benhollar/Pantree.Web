@@ -1,0 +1,50 @@
+:root {
+    --clr-neutral-light: white;
+    --clr-neutral-medium: gray;
+    --clr-neutral-dark: black;
+}
+
+:root:has(#light-theme:checked) {
+    --clr-primary: #6C7D47;
+    --clr-secondary: #96A13A;
+    --clr-accent: #45425A;
+
+    --clr-neutral-light: #F3FCF0;
+    --clr-neutral-medium: #ACADBC;
+    --clr-neutral-dark: #575C55;
+
+    --clr-text: var(--clr-neutral-dark);
+    --clr-bg: var(--clr-neutral-light);
+}
+
+:root:has(#dark-theme:checked) {
+    /* TODO: make colors */
+    --clr-primary: #red;
+    --clr-secondary: #blue;
+    --clr-accent: #green;
+
+    --clr-neutral-light: white;
+    --clr-neutral-medium: gray;
+    --clr-neutral-dark: black;
+
+    --clr-text: var(--clr-neutral-light);
+    --clr-bg: var(--clr-neutral-dark);
+}
+
+/* Apply the color theme */
+
+body {
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--clr-primary);
+}
+
+button {
+    color: var(--clr-neutral-light);
+    background-color: var(--clr-accent);
+}
