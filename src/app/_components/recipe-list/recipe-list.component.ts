@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent {
-
-}
+/** A component to view and modify recipes */
+export class RecipeListComponent { }

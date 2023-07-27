@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './food-list.component.html',
   styleUrls: ['./food-list.component.css']
 })
-export class FoodListComponent {
-
-}
+/** A component to view and modify the list of basic foods that can be used in recipes */
+export class FoodListComponent { }

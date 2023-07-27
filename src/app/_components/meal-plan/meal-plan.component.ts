@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './meal-plan.component.html',
   styleUrls: ['./meal-plan.component.css']
 })
-export class MealPlanComponent {
-
-}
+/** A component to view and modify a weekly meal plan */
+export class MealPlanComponent { }

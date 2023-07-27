@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './pantry.component.html',
   styleUrls: ['./pantry.component.css']
 })
-export class PantryComponent {
-
-}
+/** A component to view and modify the items stored in a household pantry */
+export class PantryComponent { }

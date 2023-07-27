@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-
-}
+/** The landing page of the application */
+export class HomeComponent { }

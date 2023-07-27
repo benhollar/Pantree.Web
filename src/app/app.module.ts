@@ -26,4 +26,5 @@ import {
   providers: [],
   bootstrap: [AppComponent]
 })
+/** The application's base module */
 export class AppModule { }
