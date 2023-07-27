@@ -1,6 +1,6 @@
-@import url(app/shared/color-themes.css);
-@import url(app/shared/fonts.css);
-@import url(app/shared/utility-classes.css);
+@import url(assets/css/color-themes.css);
+@import url(assets/css/fonts.css);
+@import url(assets/css/utility-classes.css);
 
 /* Box sizing rules */
 *,
