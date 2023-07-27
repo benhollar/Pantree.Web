@@ -1,3 +1,4 @@
+export { AppComponent } from './app/app.component';
 export { RecipeListComponent } from './recipe-list/recipe-list.component';
 export { HomeComponent } from './home/home.component';
 export { FoodListComponent } from './food-list/food-list.component';
