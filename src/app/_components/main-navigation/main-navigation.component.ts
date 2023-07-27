@@ -18,7 +18,7 @@ class NavigationItem {
 export class MainNavigationComponent {
   /** A media query for screen size, matching on small screens */
   #mediaQueryMatcher: MediaQueryList | MediaQueryListEvent;
-  
+
   /** The navigation links to present in the navbar */
   public navItems: NavigationItem[] = [
     { routerLink: '/recipes', displayText: 'Recipes' },
@@ -26,7 +26,7 @@ export class MainNavigationComponent {
     { routerLink: '/pantry', displayText: 'Pantry' },
     { routerLink: '/planning', displayText: 'Planning' },
   ]
-  
+
   /** Is the current window size small enough to switch the navigation style to a more compact form? */
   public get isScreenSmall(): boolean {
     const isSmall = this.#mediaQueryMatcher.matches;
@@ -35,7 +35,7 @@ export class MainNavigationComponent {
     this.hamburgerMenuOpen = false;
     return isSmall;
   }
-  
+
   /** Is the hamburger menu, only available when `isScreenSmall` is true, open? */
   public get hamburgerMenuOpen(): boolean {
     return this.isScreenSmall && this.#hamburgerMenuOpen;

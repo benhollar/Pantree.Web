@@ -15,6 +15,7 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "plugins": [
+        "@typescript-eslint",
         "eslint-plugin-tsdoc"
       ],
       "rules": {
@@ -44,7 +45,8 @@
           }
         }],
         "tsdoc/syntax": "warn",
-        "@typescript-eslint/no-inferrable-types": "off"
+        "@typescript-eslint/no-inferrable-types": "off",
+        "no-trailing-spaces": "warn"
       }
     },
     {
