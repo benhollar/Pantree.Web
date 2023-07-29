@@ -50,6 +50,5 @@ body {
 h1,
 h2,
 h3 {
-    padding-top: var(--size-300);
     line-height: 1.5;
 }

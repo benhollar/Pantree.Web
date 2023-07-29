@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-import { 
+import {
   AppComponent, RecipeListComponent, HomeComponent, FoodListComponent, PantryComponent, MealPlanComponent,
-  MainNavigationComponent
+  MainNavigationComponent, RecipeCardComponent, RecipeDetailComponent
 } from './_components';
 
 @NgModule({
@@ -16,7 +16,9 @@ import {
     FoodListComponent,
     PantryComponent,
     MealPlanComponent,
-    MainNavigationComponent
+    MainNavigationComponent,
+    RecipeCardComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,

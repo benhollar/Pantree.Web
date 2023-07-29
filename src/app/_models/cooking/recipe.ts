@@ -35,4 +35,11 @@ export class Recipe implements Identifiable {
 
     /** The nutritional value of each serving of the recipe */
     nutritionPerServing: Nutrition | null = null;
+
+    /** Construct a new `Recipe` from a partial representation */
+    public constructor(partial?: Partial<Recipe>) {
+        if (partial) {
+            Object.assign(this, partial);
+        }
+    }
 }

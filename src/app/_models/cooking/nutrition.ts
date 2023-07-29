@@ -29,4 +29,11 @@ export class Nutrition {
 
     /** The amount of protein (grams) */
     protein: number | null = null;
+
+    /** Construct a new `Nutrition` from a partial representation */
+    public constructor(partial?: Partial<Nutrition>) {
+        if (partial) {
+            Object.assign(this, partial);
+        }
+    }
 }

@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="preview">
+        <img src="https://placehold.co/150x200" alt="Placeholder"/>
+        <h3 class="recipe-name">{{recipe.name}}</h3>
+        <div class="prep-stats flex">
+            <!-- TODO: replace "Serves", "Ready in" with icons -->
+            <p class="prep-stat">{{recipe.servings}}</p>
+            <p class="prep-stat">{{recipe.totalTime}}m</p>
+        </div>
+    </div>
+    <div class="more-info flex">
+        <div class="prep-stats">
+            <p class="prep-stat">{{recipe.servings}}<span>Serves</span></p>
+            <p class="prep-stat">{{recipe.totalTime}}m<span>Total Time</span></p>
+        </div>
+        <button routerLink="{{recipe.id}}" class="detail-link">View Details</button>
+        <div class="nutrition flex">
+            <div class="nutrition-stat">
+                <p class="nutrition-name">Calories</p>
+                <p class="nutrition-value">{{recipe.nutritionPerServing?.calories ?? '??'}}</p>
+            </div>
+            <div class="nutrition-stat">
+                <p class="nutrition-name">Carbs</p>
+                <p class="nutrition-value">{{recipe.nutritionPerServing?.carbohydrates ?? '??'}}</p>
+            </div>
+            <div class="nutrition-stat">
+                <p class="nutrition-name">Fat</p>
+                <p class="nutrition-value">{{recipe.nutritionPerServing?.totalFat ?? '??'}}</p>
+            </div>
+            <div class="nutrition-stat">
+                <p class="nutrition-name">Protein</p>
+                <p class="nutrition-value">{{recipe.nutritionPerServing?.protein ?? '??'}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="background"></div>
+</div>
+

@@ -43,8 +43,3 @@ h2,
 h3 {
     color: var(--clr-primary);
 }
-
-button {
-    color: var(--clr-neutral-light);
-    background-color: var(--clr-accent);
-}

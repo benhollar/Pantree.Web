@@ -14,3 +14,13 @@
     padding: 0;
     margin: 0;
 }
+
+button {
+  font-weight: var(--fw-bold);
+  color: var(--clr-neutral-light);
+  background-color: var(--clr-accent);
+
+  border: 0;
+  padding: 0.5em 1.5em;
+  border-radius: 100vw;
+}
