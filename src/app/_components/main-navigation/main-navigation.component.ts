@@ -51,6 +51,7 @@ export class MainNavigationComponent {
 
   /**
    * Construct a new `MainNavigationComponent`
+   * @param icons - A dependency-injected service for retrieving icons
    * @param zone - A dependency-injected `NgZone` instance used for media query monitoring
    */
   public constructor(public icons: IconsService, private zone: NgZone) {

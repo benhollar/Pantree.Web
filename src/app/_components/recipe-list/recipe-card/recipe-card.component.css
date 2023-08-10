@@ -1,6 +1,5 @@
 :host {
-    --animation-speed-fast: 100ms;
-    --animation-speed-slow: 250ms;
+    --animation-speed: 250ms;
     --card-border-radius: 10px;
     --chip-border-radius: 16px;
 
@@ -25,20 +24,15 @@ img {
 }
 
 .prep-stats {
+    --gap: var(--size-500);
     justify-content: space-between;
-}
-
-.nutrition {
-    --gap: 1rem;
 }
 
 .preview {
     transition: var(--animation-speed-slow);
-    .prep-stats > .prep-stat {
-        color: var(--clr-neutral-light);
-        background-color: var(--clr-accent);
+    .prep-stats > .stat {
+        color: var(--clr-accent);
         border-radius: var(--chip-border-radius);
-        padding: 0 12px;
     }   
     & img {
         border-radius: var(--card-border-radius);
@@ -48,25 +42,13 @@ img {
 .more-info {
     position: absolute;
     opacity: 0;
-    bottom: 0;
+    bottom: var(--size-200);
     left: 0;
     right: 0;
 
-    --gap: 0.2rem;
-    flex-direction: column;
-    align-items: center;
-
-    .prep-stats {
-        columns: 2;
-        column-rule: 1px solid var(--clr-neutral-light);
-        text-align: center;
-    }
-
-    .prep-stat {
-        & span {
-            display: block;
-        }
-    }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--size-200);
 
     .detail-link {
         text-align: center;
@@ -84,27 +66,30 @@ img {
     transform: scale(.2, .9);
 }
 
-.card:hover {
-    .preview {
-        transform: translateY(-25%) scale(0.8);
-
-        .recipe-name {
-            animation: recipe-name var(--animation-speed-slow) forwards;
+@media (prefers-reduced-motion: no-preference) {
+    .card:hover {
+        .preview {
+            transform: translateY(-25%) scale(0.8);
+            transition: transform var(--animation-speed);
+    
+            .recipe-name {
+                animation: recipe-name var(--animation-speed) forwards;
+            }
+            .prep-stats {
+                display: none;
+            }
         }
-        .prep-stats {
-            opacity: 0;
+        .more-info {
+            animation: stats-transition var(--animation-speed) forwards;
         }
-    }
-    .more-info {
-        opacity: 1;
-    }
-    .background {
-        transform: scale(1.15, 1.1);
-        opacity: 1;
-
-        transition: 
-            transform var(--animation-speed-slow) ease-in-out,
-            opacity var(--animation-speed-fast) linear;
+        .background {
+            transform: scale(1.15, 1.1);
+            opacity: 1;
+    
+            transition: 
+                transform var(--animation-speed) ease-in-out,
+                opacity var(--animation-speed) linear;
+        }
     }
 }
 
@@ -127,5 +112,14 @@ img {
         text-align: center;
         opacity: 1;
         transform: scale(1.15);
+    }
+}
+
+@keyframes stats-transition {
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
