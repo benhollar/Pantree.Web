@@ -36,8 +36,10 @@ nav {
 
 @media (max-width: 40em) {
     .primary-header {
-        flex-direction: column;
+        flex-direction: row;
+        flex-flow: wrap;
         padding-bottom: 0;
+        align-items: center;
     }
 
     .primary-navigation {
@@ -50,8 +52,9 @@ nav {
     .small-menu-container {
         flex-direction: column;
         max-height: 0;
-        transition: all .4s ease;
+        transition: all 0.3s ease-in;
         overflow-y: hidden;
+        width: 100%;
     }
     .small-menu-container[data-visible="true"] {
         max-height: 300px;
@@ -63,10 +66,9 @@ nav {
     }
 
     .menu-button {
-        display: block;
-        position: absolute;
-        top: var(--size-500);
-        right: var(--size-400);
-        z-index: 9999;
+        background-color: transparent;
+        color: var(--clr-primary);
+        padding: 0;
+        height: fit-content;
     }
 }

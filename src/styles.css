@@ -21,6 +21,6 @@ button {
   background-color: var(--clr-accent);
 
   border: 0;
-  padding: 0.5em 1.5em;
+  padding: var(--size-200) var(--size-500);
   border-radius: 100vw;
 }

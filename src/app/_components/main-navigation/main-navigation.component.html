@@ -25,8 +25,9 @@
 </ng-template>
 
 <ng-template #menuButton>
-    <button class="menu-button" (click)="hamburgerMenuOpen = !hamburgerMenuOpen">Hamburger</button>
-    <!-- <ng-template [ngIf]="hamburgerMenuOpen" [ngIfThen]="fullNav"/> -->
+    <button class="menu-button" (click)="hamburgerMenuOpen = !hamburgerMenuOpen">
+        <fa-icon [icon]="hamburgerMenuOpen ? icons.close : icons.hamburger" size="2x"></fa-icon>
+    </button>
 
     <div class="small-menu-container flex" [attr.data-visible]="hamburgerMenuOpen">
         <ng-template [ngTemplateOutlet]="fullNav" />

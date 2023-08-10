@@ -1,4 +1,5 @@
 import { Component, NgZone, ViewEncapsulation } from '@angular/core';
+import { IconsService } from 'src/app/_services';
 
 /** A helper class describing a navigation link */
 class NavigationItem {
@@ -52,7 +53,7 @@ export class MainNavigationComponent {
    * Construct a new `MainNavigationComponent`
    * @param zone - A dependency-injected `NgZone` instance used for media query monitoring
    */
-  public constructor(private zone: NgZone) {
+  public constructor(public icons: IconsService, private zone: NgZone) {
     this.#mediaQueryMatcher = matchMedia('(max-width: 40em)');
     this.#mediaQueryMatcher.addEventListener("change", (mql) => zone.run(() => this.#mediaQueryMatcher = mql));
   }
