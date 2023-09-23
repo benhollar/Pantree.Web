@@ -8,17 +8,17 @@
     </div>
     <div class="more-info">
         <ng-template [ngTemplateOutlet]="baseStats"/>
-        <div class="stat">
+        <div class="stat" [tooltip]="'Carbs (g)'">
             <fa-icon [icon]="icons.wheat"/>
-            {{recipe.nutritionPerServing?.carbohydrates ?? '??'}}
+            <p>{{recipe.nutritionPerServing?.carbohydrates ?? '??'}}</p>
         </div>
-        <div class="stat">
+        <div class="stat" [tooltip]="'Total Fat (g)'">
             <fa-icon [icon]="icons.bacon"/>
-            {{recipe.nutritionPerServing?.totalFat ?? '??'}}
+            <p>{{recipe.nutritionPerServing?.totalFat ?? '??'}}</p>
         </div>
-        <div class="stat">
+        <div class="stat" [tooltip]="'Protein (g)'">
             <fa-icon [icon]="icons.dumbbell"/>
-            {{recipe.nutritionPerServing?.protein ?? '??'}}
+            <p>{{recipe.nutritionPerServing?.protein ?? '??'}}</p>
         </div>
     </div>
     <div class="background"></div>
@@ -28,16 +28,16 @@
 
 <!-- The common preparation stats -->
 <ng-template #baseStats>
-    <div class="stat">
+    <div class="stat" [tooltip]="'Servings'">
         <fa-icon [icon]="icons.users"/>
-        {{recipe.servings}}
+        <p>{{recipe.servings}}</p>
     </div>
-    <div class="stat">
+    <div class="stat" [tooltip]="'Cooking time (minutes)'">
         <fa-icon [icon]="icons.clock"/>
-        {{recipe.totalTime}}
+        <p>{{recipe.totalTime}}</p>
     </div>
-    <div class="stat">
+    <div class="stat" [tooltip]="'Calories'">
         <fa-icon [icon]="icons.fire"/>
-        {{recipe.nutritionPerServing?.calories ?? '??'}}
+        <p>{{recipe.nutritionPerServing?.calories ?? '??'}}</p>
     </div>
 </ng-template>

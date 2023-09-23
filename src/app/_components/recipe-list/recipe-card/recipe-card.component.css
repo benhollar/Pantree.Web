@@ -24,8 +24,15 @@ img {
 }
 
 .prep-stats {
-    --gap: var(--size-500);
+    --gap: 0;
     justify-content: space-between;
+}
+
+.stat {
+    display: flex;
+    & fa-icon {
+        padding-right: var(--size-100);
+    }
 }
 
 .preview {

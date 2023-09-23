@@ -2,7 +2,7 @@
     padding: var(--size-400) 0;
     justify-content: space-between;
     overflow-x: hidden;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--clr-neutral-dark);
     background-color: var(--clr-bg);
 }
 
