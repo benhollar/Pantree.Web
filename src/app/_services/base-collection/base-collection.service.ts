@@ -11,7 +11,7 @@ import { Observable, catchError, map, retry, throwError } from 'rxjs';
  * The base interface for a service interacting with a Pantree API collection
  *
  * Implementations of this class immediately gain access to the basic create-read-update-delete (CRUD) operations for
- * their targeted collection, in addition to robust error handling for those requests. 
+ * their targeted collection, in addition to robust error handling for those requests.
  */
 export abstract class BaseCollectionService<TCollection extends Identifiable> {
   /** The URL slug for the Pantree API for this collection type */
