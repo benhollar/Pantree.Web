@@ -1,5 +1,5 @@
 <h1>Recipes</h1>
 
 <div class="recipe-list-container">
-    <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe"/>
+    <app-recipe-card *ngFor="let recipe of recipes | async" [recipe]="recipe"/>
 </div>

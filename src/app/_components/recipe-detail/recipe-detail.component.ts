@@ -24,6 +24,10 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     // TODO: should reject routes with an unknown ID
-    this.recipe = this.recipeService.recipes.find((item) => item.id == id) ?? this.recipe;
+    if (id != null) {
+      this.recipeService.getSingle(id).subscribe((recipe) => {
+        this.recipe = recipe;
+      });
+    }
   }
 }

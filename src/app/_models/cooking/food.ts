@@ -14,4 +14,15 @@ export class Food implements Identifiable {
 
     /** The base quantity of the food per nutritional serving */
     measurement: Measurement = { unit: 'unit', value: 1 };
+
+    /**
+     * Construct a new `Food` from a partial representation
+     * @param partial - An optional partial representation of a `Food` to base the new object upon
+     * @returns The newly instantiated object
+     */
+    public constructor(partial?: Partial<Food>) {
+        if (partial) {
+            Object.assign(this, partial);
+        }
+    }
 }
