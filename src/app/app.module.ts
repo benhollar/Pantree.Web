@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   AppComponent, RecipeListComponent, HomeComponent, FoodListComponent, PantryComponent, MealPlanComponent,
-  MainNavigationComponent, RecipeCardComponent, RecipeDetailComponent
+  MainNavigationComponent, RecipeCardComponent, RecipeDetailComponent, FoodDetailComponent
 } from './_components';
 import { TooltipDirective } from './_directives/';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,16 @@ import { TooltipDirective } from './_directives/';
     MainNavigationComponent,
     RecipeCardComponent,
     RecipeDetailComponent,
-    TooltipDirective
+    TooltipDirective,
+    FoodDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   exports: [
     TooltipDirective

@@ -11,7 +11,7 @@ import { RecipeService } from 'src/app/_services/recipe/recipe.service';
 /** A dedicated page for viewing a full recipe */
 export class RecipeDetailComponent implements OnInit {
   /** The recipe being viewed */
-  recipe: Recipe = new Recipe({});
+  recipe: Recipe = new Recipe();
 
   /**
    * Construct a new `RecipeDetailComponent` with dependency-injected services

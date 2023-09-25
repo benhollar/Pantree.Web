@@ -1,0 +1,57 @@
+<form [formGroup]="foodForm">
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name">
+
+    <div formGroupName="nutrition">
+        <div class="form-row">
+            <label for="calories">Calories</label>
+            <input id="calories" type="number" formControlName="calories">
+        </div>
+
+        <div class="form-row">
+            <label for="saturatedFat">Saturated Fat</label>
+            <input id="saturatedFat" type="number" formControlName="saturatedFat">
+        </div>
+
+        <div class="form-row">
+            <label for="transFat">Trans Fat</label>
+            <input id="transFat" type="number" formControlName="transFat">
+        </div>
+
+        <div class="form-row">
+            <label for="cholesterol">Cholesterol</label>
+            <input id="cholesterol" type="number" formControlName="cholesterol">
+        </div>
+
+        <div class="form-row">
+            <label for="sodium">Sodium</label>
+            <input id="sodium" type="number" formControlName="sodium">
+        </div>
+
+        <div class="form-row">
+            <label for="carbohydrates">Carbohydrates</label>
+            <input id="carbohydrates" type="number" formControlName="carbohydrates">
+        </div>
+
+        <div class="form-row">
+            <label for="fiber">Fiber</label>
+            <input id="fiber" type="number" formControlName="fiber">
+        </div>
+
+        <div class="form-row">
+            <label for="sugar">Sugar</label>
+            <input id="sugar" type="number" formControlName="sugar">
+        </div>
+
+        <div class="form-row">
+            <label for="protein">Protein</label>
+            <input id="protein" type="number" formControlName="protein">
+        </div>
+    </div>
+</form>
+
+<hr>
+
+<button (click)="save()">Save</button>
+<button (click)="revertChanges()">Cancel</button>
+<button (click)="deleteFood()">Delete</button>

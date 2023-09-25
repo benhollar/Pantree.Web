@@ -1,5 +1,10 @@
-<ul>
-    <li *ngFor="let food of foods | async">
-        {{getDisplayString(food)}}
-    </li>
-</ul>
+<table>
+    <tr *ngFor="let food of foods | async">
+        <td><h3>{{food.name}}</h3></td>
+        <td><button [routerLink]="food.id">EDIT</button></td>
+    </tr>
+</table>
+
+<br>
+
+<button (click)="addFood()">New Food</button>

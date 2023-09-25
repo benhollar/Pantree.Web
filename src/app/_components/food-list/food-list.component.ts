@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Food } from 'src/app/_models/cooking/food';
 import { FoodService } from 'src/app/_services';
@@ -17,8 +18,13 @@ export class FoodListComponent {
    * Construct a new `FoodListComponent`
    * @param foodService - The API service for CRUD operations on foods
    */
-  public constructor(private foodService: FoodService) {
+  public constructor(private foodService: FoodService, private router: Router) {
     this.foods = this.foodService.getAll();
+  }
+
+  /** TODO */
+  public addFood() {
+    this.router.navigate(['/foods/new']);
   }
 
   /** TODO: delete */
