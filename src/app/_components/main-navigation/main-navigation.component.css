@@ -27,7 +27,7 @@ nav {
 }
 .primary-navigation a {
     text-decoration: none;
-    color: var(--clr-secondary);
+    color: var(--clr-primary);
 }
 .primary-navigation a:hover,
 .primary-navigation a:focus {

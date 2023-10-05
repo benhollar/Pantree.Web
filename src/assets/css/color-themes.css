@@ -1,43 +1,79 @@
 :root {
-    --clr-neutral-light: white;
-    --clr-neutral-medium: gray;
-    --clr-neutral-dark: black;
+    /** Hack to ensure Angular Material button text has proper contrast (e.g., `mat-slide-toggle`) */
+    --mdc-theme-text-primary-on-background: var(--clr-text);
 }
 
+/* Light theme */
 :root:has(#light-theme:checked) {
-    --clr-primary: #6C7D47;
-    --clr-secondary: #96A13A;
-    --clr-accent: #45425A;
-
     --clr-neutral-light: #F3FCF0;
-    --clr-neutral-medium: #ACADBC;
     --clr-neutral-dark: #575C55;
 
     --clr-text: var(--clr-neutral-dark);
     --clr-bg: var(--clr-neutral-light);
+
+    --clr-primary-50: #f3f6eb;
+    --clr-primary-100: #e2e8cc;
+    --clr-primary-200: #cfd8ac;
+    --clr-primary-300: #bcc98e;
+    --clr-primary-400: #aebe77;
+    --clr-primary-500: #a1b362;
+    --clr-primary-600: #92a459;
+    --clr-primary-700: #7e914f;
+    --clr-primary-800: #6c7d47;
+    --clr-primary-900: #4d5b39;
+    --clr-primary: var(--clr-primary-800);
+    
+    --clr-accent-50: #ebebf2;
+    --clr-accent-100: #cecddf;
+    --clr-accent-200: #afacc9;
+    --clr-accent-300: #918cb3;
+    --clr-accent-400: #7c72a2;
+    --clr-accent-500: #685992;
+    --clr-accent-600: #615189;
+    --clr-accent-700: #58477d;
+    --clr-accent-800: #4f3e70;
+    --clr-accent-900: #402e58;
+    --clr-accent: var(--clr-accent-700);
 }
 
+/* Dark theme */
 :root:has(#dark-theme:checked) {
-    /* TODO: make colors */
-    --clr-primary: #red;
-    --clr-secondary: #blue;
-    --clr-accent: #green;
-
     --clr-neutral-light: white;
-    --clr-neutral-medium: gray;
     --clr-neutral-dark: black;
 
     --clr-text: var(--clr-neutral-light);
     --clr-bg: var(--clr-neutral-dark);
+
+    --clr-primary-50: #e2f2f1;
+    --clr-primary-100: #b8dfdb;
+    --clr-primary-200: #8ccbc4;
+    --clr-primary-300: #64b6ac;
+    --clr-primary-400: #4ca69b;
+    --clr-primary-500: #3b968a;
+    --clr-primary-600: #37897d;
+    --clr-primary-700: #32796d;
+    --clr-primary-800: #2c695e;
+    --clr-primary-900: #224d43;
+    --clr-primary: var(--clr-primary-300);
+    
+    --clr-accent-50: #f5e8eb;
+    --clr-accent-100: #e8c5cd;
+    --clr-accent-200: #cc8d95;
+    --clr-accent-300: #b6646e;
+    --clr-accent-400: #bb4451;
+    --clr-accent-500: #be2b3a;
+    --clr-accent-600: #b02437;
+    --clr-accent-700: #9f1c31;
+    --clr-accent-800: #93142a;
+    --clr-accent-900: #86041f;
+    --clr-accent: var(--clr-accent-300);
 }
 
-/* Apply the color theme */
-
+/* Apply the color theming */
 body {
     color: var(--clr-text);
     background-color: var(--clr-bg);
 }
-
 h1,
 h2,
 h3 {
