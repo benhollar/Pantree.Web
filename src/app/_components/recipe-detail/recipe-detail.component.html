@@ -1,7 +1,15 @@
 <h1>{{recipe.name}}</h1>
-<p>{{recipe.servings}} servings</p>
-<p>{{recipe.totalTime}} min</p>
-<p>{{recipe.nutritionPerServing?.calories ?? '??'}} calories</p>
-<p>{{recipe.nutritionPerServing?.carbohydrates ?? '??'}} carbs</p>
-<p>{{recipe.nutritionPerServing?.totalFat ?? '??'}} fat</p>
-<p>{{recipe.nutritionPerServing?.protein ?? '??'}} protein</p>
+
+<h2>Ingredients</h2>
+<ul>
+    <li *ngFor="let ingredient of recipe.ingredients">
+        {{ingredient.food.name}} -- {{ingredient.quantity.value}} {{ingredient.quantity.unit}}
+    </li>
+</ul>
+
+<h2>Instructions</h2>
+<ol>
+    <li *ngFor="let instruction of recipe.instructions">
+        {{instruction}}
+    </li>
+</ol>
