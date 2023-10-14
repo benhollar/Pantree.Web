@@ -1,15 +1,38 @@
-<h1>{{recipe.name}}</h1>
+<div class="recipe-detail">
+    <div>
+        <h1>{{recipe.name}}</h1>
+        <p><i>{{recipe.description}}</i></p>
+    
+        <h2>Ingredients</h2>
+        <ul class="ingredient-list">
+            <li *ngFor="let ingredient of recipe.ingredients">
+                <mat-checkbox>
+                    {{ingredient.quantity.value}} {{ingredient.quantity.unit}} -- {{ingredient.food.name}}
+                </mat-checkbox>
+            </li>
+        </ul>
 
-<h2>Ingredients</h2>
-<ul>
-    <li *ngFor="let ingredient of recipe.ingredients">
-        {{ingredient.food.name}} -- {{ingredient.quantity.value}} {{ingredient.quantity.unit}}
-    </li>
-</ul>
+        <h2>Instructions</h2>
+        <ol class="instruction-list">
+            <li *ngFor="let instruction of recipe.instructions">
+                {{instruction}}
+            </li>
+        </ol>
+    </div>
 
-<h2>Instructions</h2>
-<ol>
-    <li *ngFor="let instruction of recipe.instructions">
-        {{instruction}}
-    </li>
-</ol>
+    <div>
+        <img src="https://placehold.co/300x400" alt="Placeholder"/>
+
+        <h2>Nutrition</h2>
+        <p>{{recipe.nutritionPerServing?.calories ?? '??'}}kCal</p>
+        <p>{{recipe.nutritionPerServing?.totalFat ?? '??'}}g total fat</p>
+        <p>{{recipe.nutritionPerServing?.saturatedFat ?? '??'}}g saturated fat</p>
+        <p>{{recipe.nutritionPerServing?.transFat ?? '??'}}g trans fat</p>
+        <p>{{recipe.nutritionPerServing?.cholesterol ?? '??'}}mg cholesterol</p>
+        <p>{{recipe.nutritionPerServing?.sodium ?? '??'}}mg sodium</p>
+        <p>{{recipe.nutritionPerServing?.carbohydrates ?? '??'}}g carbs</p>
+        <p>{{recipe.nutritionPerServing?.fiber ?? '??'}}g fiber</p>
+        <p>{{recipe.nutritionPerServing?.sugar ?? '??'}}g sugar</p>
+        <p>{{recipe.nutritionPerServing?.protein ?? '??'}}g protein</p>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+img {
+    border-radius: 10px;
+}
+
+::ng-deep mat-checkbox {
+    & .mdc-checkbox__background {
+        border-radius: 70% !important;
+    }
+}
+
+.recipe-detail {
+    display: flex;
+    gap: 2rem;
+}
+
+.ingredient-list {
+    list-style: none;
+}
+
+.instruction-list {
+    list-style: none;
+
+    & li {
+        display: flex;
+        align-items: center;
+    }
+
+    & li::before {
+        counter-increment: list-item;
+        content: counter(list-item);
+
+        font-size: var(--fs-500);
+        font-weight: var(--fw-500);
+        
+        background: var(--clr-accent);
+        color: white;
+        width: 2em;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0.5rem;
+    }
+}

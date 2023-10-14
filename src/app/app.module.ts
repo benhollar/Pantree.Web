@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 import {
   AppComponent, RecipeListComponent, HomeComponent, FoodListComponent, PantryComponent, MealPlanComponent,
   MainNavigationComponent, RecipeCardComponent, RecipeDetailComponent, FoodDetailComponent
@@ -35,7 +37,8 @@ import { TooltipDirective } from './_directives/';
     HttpClientModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCheckboxModule,
   ],
   exports: [
     TooltipDirective
