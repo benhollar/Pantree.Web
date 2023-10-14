@@ -57,11 +57,26 @@ $pantree-accent: (
 );
 
 // Define the theme
-$pantree-theme: mat.define-dark-theme((
- color: (
-   primary: mat.define-palette($pantree-primary),
-   accent: mat.define-palette($pantree-accent),
- )
-));
-// Instruct Angular Material to use the theme everywhere
-@include mat.all-component-themes($pantree-theme);
+//  We unfortunately need to define both a light and dark variant because -- even though the Pantree colors refer to the
+//  same variables -- Angular Material determines its foreground/background contrast based on how the theme is defined.
+$pantree-light-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette($pantree-primary),
+    accent: mat.define-palette($pantree-accent),
+  )
+  ));
+$pantree-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette($pantree-primary),
+    accent: mat.define-palette($pantree-accent),
+  )
+  ));
+
+// Tell Angular Material to use the theme everywhere, preferring the correct light/dark variant for maximum contrast.
+//  This has to vary for each theme we define for Pantree, using $pantree-light-theme or $pantree-dark-theme as needed.
+:root:has(#light-theme:checked) {
+  @include mat.all-component-themes($pantree-light-theme);
+}
+:root:has(#dark-theme:checked) {
+  @include mat.all-component-themes($pantree-dark-theme);
+}
