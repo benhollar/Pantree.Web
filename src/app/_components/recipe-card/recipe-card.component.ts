@@ -11,6 +11,9 @@ import { IconsService } from 'src/app/_services';
 export class RecipeCardComponent {
   @Input() recipe: Recipe = new Recipe({ name: 'Placeholder' });
 
+  // TODO: will become a base64 string provided by API
+  public myImage: string = 'https://placehold.co/150x225'
+
   /**
    * Construct a new `RecipeCardComponent`
    * @param icons - A dependency-injected service for retrieving icons

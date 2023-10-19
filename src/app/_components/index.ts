@@ -5,6 +5,6 @@ export { FoodListComponent } from './food-list/food-list.component';
 export { PantryComponent } from './pantry/pantry.component';
 export { MealPlanComponent } from './meal-plan/meal-plan.component';
 export { MainNavigationComponent } from './main-navigation/main-navigation.component';
-export { RecipeCardComponent } from './recipe-list/recipe-card/recipe-card.component';
+export { RecipeCardComponent } from './recipe-card/recipe-card.component';
 export { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 export { FoodDetailComponent } from './food-detail/food-detail.component';

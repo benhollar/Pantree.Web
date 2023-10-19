@@ -1,0 +1,4 @@
+/* Class to apply when using matTooltip */
+.pantree-tooltip {
+    font-size: var(--fs-300);
+}

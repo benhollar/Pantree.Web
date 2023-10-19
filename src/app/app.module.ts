@@ -8,12 +8,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import {
   AppComponent, RecipeListComponent, HomeComponent, FoodListComponent, PantryComponent, MealPlanComponent,
   MainNavigationComponent, RecipeCardComponent, RecipeDetailComponent, FoodDetailComponent
 } from './_components';
-import { TooltipDirective } from './_directives/';
 
 
 @NgModule({
@@ -27,7 +28,6 @@ import { TooltipDirective } from './_directives/';
     MainNavigationComponent,
     RecipeCardComponent,
     RecipeDetailComponent,
-    TooltipDirective,
     FoodDetailComponent
   ],
   imports: [
@@ -39,9 +39,8 @@ import { TooltipDirective } from './_directives/';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
-  ],
-  exports: [
-    TooltipDirective
+    MatButtonModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

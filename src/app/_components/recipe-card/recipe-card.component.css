@@ -1,0 +1,44 @@
+.recipe-card {
+    position: relative;
+    aspect-ratio: 2/3;
+    
+    background-size: 100%;
+    border-radius: 1rem;
+}
+
+.content {
+    --gap: 0rem;
+    flex-direction: column;
+
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    padding-top: 1rem;
+    padding-inline: 1rem;
+
+    background: linear-gradient(rgba(255 255 255 / 0), rgba(0 0 0 / 0.2));
+    border-radius: inherit; /* needed to prevent background from sticking out on corners */
+
+    text-wrap: balance;
+}
+
+.bottom-row {
+    --gap: 1rem;
+    flex-direction: row;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.button-link {
+    flex-grow: 1;
+}
+
+.recipe-details {
+    font-size: var(--fs-300);
+    margin: auto;
+}
+
+.rating { 
+    font-size: var(--fs-300);
+}

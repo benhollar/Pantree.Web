@@ -1,0 +1,24 @@
+<div class="recipe-card" [style.background-image]="'url(' + myImage  + ')'">
+
+    <div class="content flex">
+        <div class="rating">
+            <fa-icon [icon]="icons.starFilled" />
+            <fa-icon [icon]="icons.starFilled" />
+            <fa-icon [icon]="icons.starFilled" />
+            <fa-icon [icon]="icons.starHalf" />
+            <fa-icon [icon]="icons.starEmpty" />
+        </div>
+        <h3>{{recipe.name}}</h3>
+        <div class="bottom-row flex">
+            <button mat-flat-button color="accent" class="button-link" routerLink="{{recipe.id}}">Make this!</button>
+            <div class="recipe-details flex">
+                <p matTooltip="calories per serving" matTooltipClass="pantree-tooltip">
+                    <span><fa-icon [icon]="icons.fire" /></span> {{recipe.nutritionPerServing?.calories}}
+                </p>
+                <p matTooltip="total cooking time" matTooltipClass="pantree-tooltip">
+                    <span><fa-icon [icon]="icons.clock" /></span> {{recipe.totalTime}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
