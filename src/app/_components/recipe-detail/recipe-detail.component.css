@@ -34,8 +34,12 @@ img {
         
         background: var(--clr-accent);
         color: white;
-        width: 2em;
+
+        --width: 2em;
+        min-width: var(--width);
+        max-width: var(--width);
         aspect-ratio: 1;
+
         border-radius: 50%;
         
         display: flex;
