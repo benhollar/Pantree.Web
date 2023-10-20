@@ -10,7 +10,7 @@
         </div>
         <h3>{{recipe.name}}</h3>
         <div class="bottom-row flex">
-            <button mat-flat-button color="accent" class="button-link" routerLink="{{recipe.id}}">Make this!</button>
+            <button mat-flat-button color="accent" class="button-link" routerLink="{{recipe.id}}">Details</button>
             <div class="recipe-details flex">
                 <p matTooltip="calories per serving" matTooltipClass="pantree-tooltip">
                     <span><fa-icon [icon]="icons.fire" /></span> {{recipe.nutritionPerServing?.calories}}

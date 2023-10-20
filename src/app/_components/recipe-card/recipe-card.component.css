@@ -1,5 +1,7 @@
 .recipe-card {
     position: relative;
+
+    max-width: 300px;
     aspect-ratio: 2/3;
     
     background-size: 100%;
@@ -17,7 +19,7 @@
     padding-top: 1rem;
     padding-inline: 1rem;
 
-    background: linear-gradient(rgba(255 255 255 / 0), rgba(0 0 0 / 0.2));
+    background: linear-gradient(rgba(255 255 255 / 0), rgba(0 0 0 / 0.5));
     border-radius: inherit; /* needed to prevent background from sticking out on corners */
 
     text-wrap: balance;
@@ -37,6 +39,7 @@
 .recipe-details {
     font-size: var(--fs-300);
     margin: auto;
+    text-align: center;
 }
 
 .rating { 

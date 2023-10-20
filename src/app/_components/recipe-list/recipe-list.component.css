@@ -1,11 +1,8 @@
 .recipe-list-container {
-    --gap: 1rem;
-
-    --max-columns: 5;
-
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    gap: 1rem;
+
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(max(250px, 100% / calc(var(--max-columns) + 1)), auto));
-    gap: var(--gap);
     padding-bottom: 2rem;
 }
