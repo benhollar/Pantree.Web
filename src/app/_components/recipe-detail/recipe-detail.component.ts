@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/_models/cooking/recipe';
+import { IconsService } from 'src/app/_services';
 import { RecipeService } from 'src/app/_services/recipe/recipe.service';
 
 @Component({
@@ -10,15 +11,39 @@ import { RecipeService } from 'src/app/_services/recipe/recipe.service';
 })
 /** A dedicated page for viewing a full recipe */
 export class RecipeDetailComponent implements OnInit {
+  /** A media query for screen size, matching on small screens */
+  #mediaQueryMatcher: MediaQueryList | MediaQueryListEvent;
+  
+  #previousScreenWasSmall = false;
+
+  public selectedTab: number = 1;
+
   /** The recipe being viewed */
-  recipe: Recipe = new Recipe();
+  public recipe: Recipe = new Recipe();
+
+  public get isScreenSmall(): boolean {
+    const isSmall = this.#mediaQueryMatcher.matches;
+
+    if (isSmall != this.#previousScreenWasSmall) {
+      this.selectedTab = isSmall ? 0 : 1;
+    }
+
+    this.#previousScreenWasSmall = isSmall;
+    return isSmall;
+  }
 
   /**
    * Construct a new `RecipeDetailComponent` with dependency-injected services
    * @param recipeService - The recipe management service
    * @param route - The route used to open the component, expected to hold a recipe ID
    */
-  public constructor(private recipeService: RecipeService, private route: ActivatedRoute) { }
+  public constructor(private recipeService: RecipeService,
+                     public icons: IconsService,
+                     private route: ActivatedRoute,
+                     private zone: NgZone) { 
+    this.#mediaQueryMatcher = matchMedia('(max-width: 40em)');
+    this.#mediaQueryMatcher.addEventListener("change", (mql) => zone.run(() => this.#mediaQueryMatcher = mql));
+  }
 
   /** Initialize the component */
   ngOnInit(): void {

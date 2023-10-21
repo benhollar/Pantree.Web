@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {
-  faBacon, faClock, faClose, faDumbbell, faFire, faHamburger, faUsers, faWheatAwn, faStar, faStarHalfStroke
+  faBacon, faClock, faClose, faDumbbell, faFire, faHamburger, faUsers, faWheatAwn, faStar, faStarHalfStroke,
+  faShoppingBasket, faImage, faHeart, faH
 } from '@fortawesome/free-solid-svg-icons';
 
-import { faStar as faStarReg } from '@fortawesome/free-regular-svg-icons';
+import { faStar as faStarReg, faRectangleList } from '@fortawesome/free-regular-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,8 @@ export class IconsService {
   starFilled = faStar;
   starEmpty = faStarReg;
   starHalf = faStarHalfStroke;
+  shoppingBasket = faShoppingBasket;
+  rectangleList = faRectangleList;
+  image = faImage;
+  heart = faHeart;
 }

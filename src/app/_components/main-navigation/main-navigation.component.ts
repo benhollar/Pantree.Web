@@ -32,8 +32,9 @@ export class MainNavigationComponent {
   public get isScreenSmall(): boolean {
     const isSmall = this.#mediaQueryMatcher.matches;
     // Forcibly reset the state of the hamburger menu; if the screen becomes small again, it should be hidden by default
-    if (!isSmall)
-    this.hamburgerMenuOpen = false;
+    if (!isSmall) { 
+      this.hamburgerMenuOpen = false; 
+    }
     return isSmall;
   }
 

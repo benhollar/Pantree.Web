@@ -1,38 +1,79 @@
-<div class="recipe-detail">
-    <div>
-        <h1>{{recipe.name}}</h1>
-        <p><i>{{recipe.description}}</i></p>
+<div class="recipe-detail flex">
+    <div *ngIf="!isScreenSmall" class="instructions">
+        <ng-component *ngTemplateOutlet="instructions"/>
+    </div>
+
+    <mat-tab-group class="tab-group" headerPosition="below" [backgroundColor]="'accent'" [(selectedIndex)]="selectedTab">
+        <mat-tab [aria-labelledby]="!isScreenSmall ? 'hidden' : ''">
+            <ng-template mat-tab-label><fa-icon [icon]="icons.rectangleList"/></ng-template>
+            <ng-component *ngTemplateOutlet="instructions"/>
+        </mat-tab>
     
-        <h2>Ingredients</h2>
-        <ul class="ingredient-list">
-            <li *ngFor="let ingredient of recipe.ingredients">
-                <mat-checkbox>
-                    {{ingredient.quantity.value}} {{ingredient.quantity.unit}} -- {{ingredient.food.name}}
-                </mat-checkbox>
-            </li>
-        </ul>
+        <mat-tab>
+            <ng-template mat-tab-label><fa-icon [icon]="icons.shoppingBasket"/></ng-template>
+            <ng-component *ngTemplateOutlet="ingredients"/>
+        </mat-tab>
 
-        <h2>Instructions</h2>
-        <ol class="instruction-list">
-            <li *ngFor="let instruction of recipe.instructions">
-                {{instruction}}
-            </li>
-        </ol>
-    </div>
+        <mat-tab>
+            <ng-template mat-tab-label><fa-icon [icon]="icons.heart"/></ng-template>
+            <ng-component *ngTemplateOutlet="nutrition"/>
+        </mat-tab>
 
-    <div>
-        <img src="https://placehold.co/300x400" alt="Placeholder"/>
-
-        <h2>Nutrition</h2>
-        <p>{{recipe.nutritionPerServing?.calories ?? '??'}}kCal</p>
-        <p>{{recipe.nutritionPerServing?.totalFat ?? '??'}}g total fat</p>
-        <p>{{recipe.nutritionPerServing?.saturatedFat ?? '??'}}g saturated fat</p>
-        <p>{{recipe.nutritionPerServing?.transFat ?? '??'}}g trans fat</p>
-        <p>{{recipe.nutritionPerServing?.cholesterol ?? '??'}}mg cholesterol</p>
-        <p>{{recipe.nutritionPerServing?.sodium ?? '??'}}mg sodium</p>
-        <p>{{recipe.nutritionPerServing?.carbohydrates ?? '??'}}g carbs</p>
-        <p>{{recipe.nutritionPerServing?.fiber ?? '??'}}g fiber</p>
-        <p>{{recipe.nutritionPerServing?.sugar ?? '??'}}g sugar</p>
-        <p>{{recipe.nutritionPerServing?.protein ?? '??'}}g protein</p>
-    </div>
+        <mat-tab>
+            <ng-template mat-tab-label><fa-icon [icon]="icons.image"/></ng-template>
+            <ng-component *ngTemplateOutlet="photo"/>
+        </mat-tab>
+    
+        <mat-tab>
+            <ng-template mat-tab-label><fa-icon [icon]="icons.bacon"/></ng-template>
+            Reviews
+        </mat-tab>
+    
+        <mat-tab>
+            <ng-template mat-tab-label><fa-icon [icon]="icons.bacon"/></ng-template>
+            Share
+        </mat-tab>
+    </mat-tab-group>
 </div>
+
+
+<ng-template #instructions>
+    <h1>{{recipe.name}}</h1>
+    <p><i>{{recipe.description}}</i></p>
+
+    <h2>Instructions</h2>
+    <ol class="instruction-list">
+        <li *ngFor="let instruction of recipe.instructions">
+            {{instruction}}
+        </li>
+    </ol>
+</ng-template>
+
+<ng-template #ingredients>
+    <h2>Ingredients</h2>
+    <ul class="ingredient-list">
+        <li *ngFor="let ingredient of recipe.ingredients">
+            <mat-checkbox>
+                {{ingredient.quantity.value}} {{ingredient.quantity.unit}} -- {{ingredient.food.name}}
+            </mat-checkbox>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #nutrition>
+    <h2>Nutrition</h2>
+    <p>{{recipe.nutritionPerServing?.calories ?? '??'}}kCal</p>
+    <p>{{recipe.nutritionPerServing?.totalFat ?? '??'}}g total fat</p>
+    <p>{{recipe.nutritionPerServing?.saturatedFat ?? '??'}}g saturated fat</p>
+    <p>{{recipe.nutritionPerServing?.transFat ?? '??'}}g trans fat</p>
+    <p>{{recipe.nutritionPerServing?.cholesterol ?? '??'}}mg cholesterol</p>
+    <p>{{recipe.nutritionPerServing?.sodium ?? '??'}}mg sodium</p>
+    <p>{{recipe.nutritionPerServing?.carbohydrates ?? '??'}}g carbs</p>
+    <p>{{recipe.nutritionPerServing?.fiber ?? '??'}}g fiber</p>
+    <p>{{recipe.nutritionPerServing?.sugar ?? '??'}}g sugar</p>
+    <p>{{recipe.nutritionPerServing?.protein ?? '??'}}g protein</p>
+</ng-template>
+
+<ng-template #photo>
+    <img src="https://placehold.co/150x225" class="recipe-img">
+</ng-template>

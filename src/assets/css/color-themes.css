@@ -3,6 +3,15 @@
     --mdc-theme-text-primary-on-background: var(--clr-text);
 }
 
+/* 
+Color themes should be defined by thinking in terms of low-contrast (50) to high contrast (900) increments, as shown
+below. For "light" themes, this means --clr-50 should be near-white (i.e. your background color), and --clr-900 should
+be near-black. For "dark" themes, the inverse is true: --clr-50 should be near-black, and --clr-900 is near-white.
+
+Additionally, you will need to inform Angular Material how to use a new theme defined here, as can be found in
+`angular-material-themes.scss`.
+*/
+
 /* Light theme */
 :root:has(#light-theme:checked) {
     --clr-neutral-light: #F3FCF0;
@@ -44,29 +53,29 @@
     --clr-text: var(--clr-neutral-light);
     --clr-bg: var(--clr-neutral-dark);
 
-    --clr-primary-50: #e2f2f1;
-    --clr-primary-100: #b8dfdb;
-    --clr-primary-200: #8ccbc4;
-    --clr-primary-300: #64b6ac;
-    --clr-primary-400: #4ca69b;
-    --clr-primary-500: #3b968a;
-    --clr-primary-600: #37897d;
-    --clr-primary-700: #32796d;
-    --clr-primary-800: #2c695e;
-    --clr-primary-900: #224d43;
-    --clr-primary: var(--clr-primary-300);
+    --clr-primary-50: #224d43;
+    --clr-primary-100: #2c695e;
+    --clr-primary-200: #32796d;
+    --clr-primary-300: #37897d;
+    --clr-primary-400: #3b968a;
+    --clr-primary-500: #4ca69b;
+    --clr-primary-600: #64b6ac;
+    --clr-primary-700: #8ccbc4;
+    --clr-primary-800: #b8dfdb;
+    --clr-primary-900: #e2f2f1;
+    --clr-primary: var(--clr-primary-600);
     
-    --clr-accent-50: #f5e8eb;
-    --clr-accent-100: #e8c5cd;
-    --clr-accent-200: #cc8d95;
-    --clr-accent-300: #b6646e;
-    --clr-accent-400: #bb4451;
-    --clr-accent-500: #be2b3a;
-    --clr-accent-600: #b02437;
-    --clr-accent-700: #9f1c31;
-    --clr-accent-800: #93142a;
-    --clr-accent-900: #86041f;
-    --clr-accent: var(--clr-accent-300);
+    --clr-accent-50: #86041f;
+    --clr-accent-100: #93142a;
+    --clr-accent-200: #9f1c31;
+    --clr-accent-300: #b02437;
+    --clr-accent-400: #be2b3a;
+    --clr-accent-500: #bb4451;
+    --clr-accent-600: #b6646e;
+    --clr-accent-700: #cc8d95;
+    --clr-accent-800: #e8c5cd;
+    --clr-accent-900: #f5e8eb;
+    --clr-accent: var(--clr-accent-600);
 }
 
 /* Apply the color theming */
