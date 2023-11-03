@@ -11,6 +11,7 @@
 .tab-group {
     flex-grow: 1;
     background-color: var(--clr-accent-50);
+    background-size: cover;
     border-radius: var(--size-600);
     padding: var(--size-400);
 
@@ -63,9 +64,4 @@
 
         margin: 0.5rem;
     }
-}
-
-.recipe-img {
-    border-radius: var(--size-600);
-    height: calc(100% - var(--size-600));
 }

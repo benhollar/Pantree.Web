@@ -4,7 +4,7 @@
     max-width: 300px;
     aspect-ratio: 2/3;
     
-    background-size: 100%;
+    background-size: cover;
     border-radius: 1rem;
 }
 
@@ -16,13 +16,20 @@
     bottom: 0;
 
     width: 100%;
-    padding-top: 1rem;
     padding-inline: 1rem;
-
-    background: linear-gradient(rgba(255 255 255 / 0), rgba(0 0 0 / 0.2));
-    border-radius: inherit; /* needed to prevent background from sticking out on corners */
-
+    
     text-wrap: balance;
+    border-radius: inherit; /* needed to prevent background from sticking out on corners */
+    
+    /* 
+    Force the text color inside the content to be white, contrasting with the image as much as possible given our
+    gradient to black inside this container. We force the gradient to start higher in the div using padding.
+    */
+    background: linear-gradient(rgba(255 255 255 / 0), rgba(0 0 0 / 0.8));
+    padding-top: 3rem;
+    & * {
+        color: white;
+    }
 }
 
 .bottom-row {

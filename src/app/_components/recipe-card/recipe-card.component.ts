@@ -12,7 +12,7 @@ export class RecipeCardComponent {
   @Input() recipe: Recipe = new Recipe({ name: 'Placeholder' });
 
   // TODO: will become a base64 string provided by API
-  public myImage: string = 'https://placehold.co/150x225'
+  public myImage: string = 'assets/img/sample-recipe.jpg'
 
   /**
    * Construct a new `RecipeCardComponent`

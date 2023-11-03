@@ -21,6 +21,9 @@ export class RecipeDetailComponent implements OnInit {
   /** The recipe being viewed */
   public recipe: Recipe = new Recipe();
 
+  // TODO: will become a base64 string provided by API
+  public myImage: string = 'assets/img/sample-recipe.jpg'
+
   public get isScreenSmall(): boolean {
     const isSmall = this.#mediaQueryMatcher.matches;
 

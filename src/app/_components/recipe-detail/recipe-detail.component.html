@@ -3,7 +3,10 @@
         <ng-component *ngTemplateOutlet="instructions"/>
     </div>
 
-    <mat-tab-group class="tab-group" headerPosition="below" [backgroundColor]="'accent'" [(selectedIndex)]="selectedTab">
+    <mat-tab-group class="tab-group" headerPosition="below" [backgroundColor]="'accent'" 
+        [(selectedIndex)]="selectedTab"
+        [style.background-image]="selectedTab == 3 ? 'url(' + myImage  + ')' : 'none'">
+
         <mat-tab [aria-labelledby]="!isScreenSmall ? 'hidden' : ''">
             <ng-template mat-tab-label><fa-icon [icon]="icons.rectangleList"/></ng-template>
             <ng-component *ngTemplateOutlet="instructions"/>
@@ -20,8 +23,11 @@
         </mat-tab>
 
         <mat-tab>
+            <!--
+            This one intentionally has no content; we set the background image of the parent container when this tab is
+            active, making it appear to have the content you'd expect.
+            -->
             <ng-template mat-tab-label><fa-icon [icon]="icons.image"/></ng-template>
-            <ng-component *ngTemplateOutlet="photo"/>
         </mat-tab>
     
         <mat-tab>
@@ -72,8 +78,4 @@
     <p>{{recipe.nutritionPerServing?.fiber ?? '??'}}g fiber</p>
     <p>{{recipe.nutritionPerServing?.sugar ?? '??'}}g sugar</p>
     <p>{{recipe.nutritionPerServing?.protein ?? '??'}}g protein</p>
-</ng-template>
-
-<ng-template #photo>
-    <img src="https://placehold.co/150x225" class="recipe-img">
 </ng-template>
