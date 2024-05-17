@@ -1,9 +1,6 @@
 .recipe-card {
     position: relative;
-
-    max-width: 300px;
-    aspect-ratio: 2/3;
-    
+    aspect-ratio: 1 / 1;
     background-size: cover;
     border-radius: 1rem;
 }

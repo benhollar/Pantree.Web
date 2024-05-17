@@ -14,8 +14,8 @@ Additionally, you will need to inform Angular Material how to use a new theme de
 
 /* Light theme */
 :root:has(#light-theme:checked) {
-    --clr-neutral-light: #F3FCF0;
-    --clr-neutral-dark: #575C55;
+    --clr-neutral-light: white;
+    --clr-neutral-dark: black;
 
     --clr-text: var(--clr-neutral-dark);
     --clr-bg: var(--clr-neutral-light);

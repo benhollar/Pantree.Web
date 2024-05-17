@@ -1,6 +1,6 @@
 .recipe-list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    grid-template-columns: repeat(auto-fill, minmax(20ch, auto));
     gap: 1rem;
 
     width: 100%;
