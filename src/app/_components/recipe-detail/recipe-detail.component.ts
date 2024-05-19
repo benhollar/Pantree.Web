@@ -11,29 +11,11 @@ import { RecipeService } from 'src/app/_services/recipe/recipe.service';
 })
 /** A dedicated page for viewing a full recipe */
 export class RecipeDetailComponent implements OnInit {
-  /** A media query for screen size, matching on small screens */
-  #mediaQueryMatcher: MediaQueryList | MediaQueryListEvent;
-  
-  #previousScreenWasSmall = false;
-
-  public selectedTab: number = 1;
-
   /** The recipe being viewed */
   public recipe: Recipe = new Recipe();
 
   // TODO: will become a base64 string provided by API
   public myImage: string = 'assets/img/sample-recipe.jpg'
-
-  public get isScreenSmall(): boolean {
-    const isSmall = this.#mediaQueryMatcher.matches;
-
-    if (isSmall != this.#previousScreenWasSmall) {
-      this.selectedTab = isSmall ? 0 : 1;
-    }
-
-    this.#previousScreenWasSmall = isSmall;
-    return isSmall;
-  }
 
   /**
    * Construct a new `RecipeDetailComponent` with dependency-injected services
@@ -43,10 +25,7 @@ export class RecipeDetailComponent implements OnInit {
   public constructor(private recipeService: RecipeService,
                      public icons: IconsService,
                      private route: ActivatedRoute,
-                     private zone: NgZone) { 
-    this.#mediaQueryMatcher = matchMedia('(max-width: 40em)');
-    this.#mediaQueryMatcher.addEventListener("change", (mql) => zone.run(() => this.#mediaQueryMatcher = mql));
-  }
+                     private zone: NgZone) { }
 
   /** Initialize the component */
   ngOnInit(): void {

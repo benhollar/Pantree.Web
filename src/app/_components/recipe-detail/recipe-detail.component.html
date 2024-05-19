@@ -1,81 +1,43 @@
-<div class="recipe-detail flex">
-    <div *ngIf="!isScreenSmall" class="instructions">
-        <ng-component *ngTemplateOutlet="instructions"/>
+<div class="recipe-container">
+    <img class="image" [src]="myImage">
+    <div class="recipe-contents">
+        <div class="header">
+            <div class="header-title">
+                <h2>{{recipe.name}}</h2>
+                <div class="details">
+                    <div>prep {{recipe.preparationTime}} min</div>
+                    <div>total {{recipe.totalTime}} min</div>
+                    <div>serves {{recipe.servings}}</div>
+                    <div>cal {{recipe.nutritionPerServing?.calories}}</div>
+                </div>
+            </div>
+            <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quam eum dolore consectetur ut animi ea porro. Vitae doloribus asperiores ad neque facilis temporibus nemo. Alias nesciunt cum ex explicabo.
+                <!-- {{recipe.description}} -->
+            </p>
+        </div>
+        <div class="body">
+            <div class="ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li *ngFor="let ingredient of recipe.ingredients">
+                        <mat-checkbox>
+                            <span class="ingredient-quantity">
+                                {{ingredient.quantity.value}} {{ingredient.quantity.unit}}
+                            </span>
+                            <span class="ingredient-name">{{ingredient.food.name}}</span>
+                        </mat-checkbox>
+                    </li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <h3>Directions</h3>
+                <ol>
+                    <li *ngFor="let instruction of recipe.instructions">
+                        {{instruction}}
+                    </li>
+                </ol>
+            </div>
+        </div>
     </div>
-
-    <mat-tab-group class="tab-group" headerPosition="below" [backgroundColor]="'accent'" 
-        [(selectedIndex)]="selectedTab"
-        [style.background-image]="selectedTab == 3 ? 'url(' + myImage  + ')' : 'none'">
-
-        <mat-tab [aria-labelledby]="!isScreenSmall ? 'hidden' : ''">
-            <ng-template mat-tab-label><fa-icon [icon]="icons.rectangleList"/></ng-template>
-            <ng-component *ngTemplateOutlet="instructions"/>
-        </mat-tab>
-    
-        <mat-tab>
-            <ng-template mat-tab-label><fa-icon [icon]="icons.shoppingBasket"/></ng-template>
-            <ng-component *ngTemplateOutlet="ingredients"/>
-        </mat-tab>
-
-        <mat-tab>
-            <ng-template mat-tab-label><fa-icon [icon]="icons.heart"/></ng-template>
-            <ng-component *ngTemplateOutlet="nutrition"/>
-        </mat-tab>
-
-        <mat-tab>
-            <!--
-            This one intentionally has no content; we set the background image of the parent container when this tab is
-            active, making it appear to have the content you'd expect.
-            -->
-            <ng-template mat-tab-label><fa-icon [icon]="icons.image"/></ng-template>
-        </mat-tab>
-    
-        <mat-tab>
-            <ng-template mat-tab-label><fa-icon [icon]="icons.bacon"/></ng-template>
-            Reviews
-        </mat-tab>
-    
-        <mat-tab>
-            <ng-template mat-tab-label><fa-icon [icon]="icons.bacon"/></ng-template>
-            Share
-        </mat-tab>
-    </mat-tab-group>
 </div>
-
-
-<ng-template #instructions>
-    <h1>{{recipe.name}}</h1>
-    <p><i>{{recipe.description}}</i></p>
-
-    <h2>Instructions</h2>
-    <ol class="instruction-list">
-        <li *ngFor="let instruction of recipe.instructions">
-            {{instruction}}
-        </li>
-    </ol>
-</ng-template>
-
-<ng-template #ingredients>
-    <h2>Ingredients</h2>
-    <ul class="ingredient-list">
-        <li *ngFor="let ingredient of recipe.ingredients">
-            <mat-checkbox>
-                {{ingredient.quantity.value}} {{ingredient.quantity.unit}} -- {{ingredient.food.name}}
-            </mat-checkbox>
-        </li>
-    </ul>
-</ng-template>
-
-<ng-template #nutrition>
-    <h2>Nutrition</h2>
-    <p>{{recipe.nutritionPerServing?.calories ?? '??'}}kCal</p>
-    <p>{{recipe.nutritionPerServing?.totalFat ?? '??'}}g total fat</p>
-    <p>{{recipe.nutritionPerServing?.saturatedFat ?? '??'}}g saturated fat</p>
-    <p>{{recipe.nutritionPerServing?.transFat ?? '??'}}g trans fat</p>
-    <p>{{recipe.nutritionPerServing?.cholesterol ?? '??'}}mg cholesterol</p>
-    <p>{{recipe.nutritionPerServing?.sodium ?? '??'}}mg sodium</p>
-    <p>{{recipe.nutritionPerServing?.carbohydrates ?? '??'}}g carbs</p>
-    <p>{{recipe.nutritionPerServing?.fiber ?? '??'}}g fiber</p>
-    <p>{{recipe.nutritionPerServing?.sugar ?? '??'}}g sugar</p>
-    <p>{{recipe.nutritionPerServing?.protein ?? '??'}}g protein</p>
-</ng-template>

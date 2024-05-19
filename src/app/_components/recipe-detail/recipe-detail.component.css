@@ -1,67 +1,109 @@
-::ng-deep mat-checkbox {
-    & .mdc-checkbox__background {
-        border-radius: 70% !important;
-    }
-}
+.recipe-container {
+    --border-radius: 10px;
 
-.recipe-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-400);
+
     height: 100%;
+
+    border-radius: var(--border-radius);
 }
 
-.tab-group {
+.image {
+    border-radius: var(--border-radius);
+
+    flex-basis: 0;
+    flex-grow: 2;
+    min-width: 200px;
+    
+    object-fit: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.recipe-contents {
+    flex-basis: 0;
+    flex-grow: 8;
+    min-width: min(500px, 100%);
+}
+
+.header {
+    /* border: 3px solid red; */
+
+    display: flex;
+    gap: var(--size-400);
+    flex-wrap: wrap;
+}
+
+.header-title {
     flex-grow: 1;
-    background-color: var(--clr-accent-50);
-    background-size: cover;
-    border-radius: var(--size-600);
-    padding: var(--size-400);
+    min-width: 60%;
+    align-content: center;
+    text-align: center;
+}
 
-    @media (min-width: 40em) {
-        max-width: max(300px, 40%);
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    div {
+        text-transform: uppercase;
+        padding-inline: 10px;
+
+        &:not(:last-child) {
+            border-right: 1px solid var(--clr-text);
+        }
     }
 }
-::ng-deep .mat-mdc-tab-header {
-    border-radius: 100vw;
-}
-::ng-deep .mat-mdc-tab-body-wrapper {
-    height: 100%;
-}
-::ng-deep .mdc-tab[aria-labelledby='hidden'] {
-    display: none;
-  }
 
-.ingredient-list {
-    list-style: none;
+.description {
+    color: var(--clr-neutral-light);
+    background-color: var(--clr-primary);
+    padding: 10px;
+    margin: auto 0;
+    border-radius: var(--border-radius);
+
+    flex-grow: 1;
+    flex-basis: 30ch;
 }
 
-.instruction-list {
-    list-style: none;
+.body {
+    /* border: 3px solid purple; */
 
-    & li {
-        display: flex;
-        align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ingredients {
+    /* border: 3px solid blue; */
+
+    flex-grow: 1;
+
+    ul {
+        list-style: none;
     }
+}
 
-    & li::before {
-        counter-increment: list-item;
-        content: counter(list-item);
+.ingredient-quantity {
+    font-weight: var(--fw-bold);
+}
 
-        font-size: var(--fs-500);
-        font-weight: var(--fw-500);
-        
-        background: var(--clr-accent);
-        color: white;
+.instructions { 
+    /* border: 3px solid green; */
 
-        --width: 2em;
-        min-width: var(--width);
-        max-width: var(--width);
-        aspect-ratio: 1;
+    flex-grow: 1;
 
-        border-radius: 50%;
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    ol {
+        list-style: none;
+        & li::before {
+            content: counter(list-item);
 
-        margin: 0.5rem;
+            font-size: var(--fs-500);
+            font-weight: var(--fw-500);
+            color: var(--clr-primary);
+        }
     }
 }
