@@ -1,0 +1,4 @@
+:root {
+    --navbar-height: 90px;
+    --navbar-padding-bottom: var(--size-500, 24px);
+}

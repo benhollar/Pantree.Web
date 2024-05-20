@@ -1,3 +1,13 @@
+::ng-deep mat-checkbox {
+    & .mdc-checkbox__background {
+        border-radius: 70% !important;
+    }
+}
+
+:host {
+    --full-height: calc(100vh - var(--navbar-height, 0px) - 2 * var(--navbar-padding-bottom));
+}
+
 .recipe-container {
     --border-radius: 10px;
 
@@ -5,17 +15,13 @@
     flex-wrap: wrap;
     gap: var(--size-400);
 
-    height: 100%;
-
     border-radius: var(--border-radius);
 }
 
 .image {
     border-radius: var(--border-radius);
-
-    flex-basis: 0;
-    flex-grow: 2;
-    min-width: 200px;
+    max-height: 200px;
+    min-width: 100%;
     
     object-fit: cover;
     background-position: center;
@@ -23,14 +29,15 @@
 }
 
 .recipe-contents {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-400);
+
     flex-basis: 0;
     flex-grow: 8;
-    min-width: min(500px, 100%);
 }
 
 .header {
-    /* border: 3px solid red; */
-
     display: flex;
     gap: var(--size-400);
     flex-wrap: wrap;
@@ -66,22 +73,17 @@
     border-radius: var(--border-radius);
 
     flex-grow: 1;
-    flex-basis: 30ch;
+    flex-basis: 40ch;
 }
 
 .body {
-    /* border: 3px solid purple; */
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: var(--size-400);
 }
 
 .ingredients {
-    /* border: 3px solid blue; */
-
-    flex-grow: 1;
-
     ul {
         list-style: none;
     }
@@ -91,19 +93,80 @@
     font-weight: var(--fw-bold);
 }
 
-.instructions { 
-    /* border: 3px solid green; */
-
-    flex-grow: 1;
+.instructions {
+    flex-grow: 2;
 
     ol {
+        --list-number-fs: var(--fs-300);
+        --list-number-width: calc(2 * var(--list-number-fs));
+        --list-number-spacing: var(--size-200);
+
         list-style: none;
-        & li::before {
+        li {
+            line-height: 2;
+            margin-left: var(--list-number-spacing);
+            padding-left: var(--list-number-width);
+            text-indent: calc((var(--list-number-width) + var(--list-number-spacing)) * -1);
+
+            div {
+                display: inline;
+                padding-left: var(--list-number-spacing);
+            }
+        }
+        li::before {
             content: counter(list-item);
 
-            font-size: var(--fs-500);
-            font-weight: var(--fw-500);
-            color: var(--clr-primary);
+            font-size: var(--list-number-fs);
+            font-weight: var(--fw-semi-bold);
+            color: var(--clr-neutral-light);
+            text-indent: 0px;
+            
+            display: inline-block;
+            background-color: var(--clr-primary);
+            text-align: center;
+            align-content: center;
+            height: var(--list-number-width);
+            width: var(--list-number-width);
+            border-radius: 50%;
+        }
+    }
+}
+
+/* Add some complexity for wider layouts */
+@media (min-width: 750px) {
+    :host {
+        /* Basically, enforce that the recipe detail page is a fixed-height as if the entire webpage was fixed-height */
+        display: block;
+        height: var(--full-height);
+        overflow: auto;
+    }
+
+    .recipe-container {
+        height: 100%;
+        overflow: auto;
+        scrollbar-width: none;
+    }
+
+    .image {
+        position: sticky;
+        top: 0;
+        height: var(--full-height);
+        max-height: unset;
+        min-width: 200px;
+
+        flex-basis: 0;
+        flex-grow: 2;
+    }
+    
+    .instructions {
+        ol {
+            column-width: 30ch;
+            column-count: auto;
+
+            li {
+                max-width: 60ch;
+                break-inside: avoid;
+            }
         }
     }
 }

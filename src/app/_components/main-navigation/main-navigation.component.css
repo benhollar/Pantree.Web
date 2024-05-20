@@ -5,6 +5,7 @@ app-main-navigation {
 }
 
 .primary-header {
+    height: var(--navbar-height);
     padding: var(--size-400) 0;
     justify-content: space-between;
     overflow-x: hidden;

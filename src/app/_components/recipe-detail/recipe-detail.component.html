@@ -1,5 +1,5 @@
 <div class="recipe-container">
-    <img class="image" [src]="myImage">
+    <img class="image" [src]="myImage" alt="A photo of the recipe as it appears once cooked.">
     <div class="recipe-contents">
         <div class="header">
             <div class="header-title">
@@ -34,7 +34,7 @@
                 <h3>Directions</h3>
                 <ol>
                     <li *ngFor="let instruction of recipe.instructions">
-                        {{instruction}}
+                        <div>{{instruction}}</div>
                     </li>
                 </ol>
             </div>
