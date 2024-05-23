@@ -27,7 +27,7 @@ export abstract class BaseCollectionService<TCollection extends Identifiable> {
    * Construct a new `BaseCollectionService`
    * @param httpClient - The HTTP client used to send and receive HTTP requests
    */
-  public constructor(private httpClient: HttpClient) { }
+  public constructor(protected httpClient: HttpClient) { }
 
   /**
    * Get every item belonging to the collection
@@ -101,7 +101,7 @@ export abstract class BaseCollectionService<TCollection extends Identifiable> {
    * @param error - The HTTP error to handle
    * @returns An observable with a user-ready error message
    */
-  private handleError(error: HttpErrorResponse) {
+  protected handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error);
